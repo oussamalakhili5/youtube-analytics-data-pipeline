@@ -13,7 +13,7 @@ def get_conn_cursor():
         """
     hook = PostgresHook(
         postgres_conn_id="postgres_db_yt_elt",
-        database="elt_db"
+        database="youtube_analytics"
     )
     conn = hook.get_conn()
     cur = conn.cursor(cursor_factory=RealDictCursor)
@@ -91,12 +91,12 @@ def create_table(schema):
         );
         """
 
-        cur.execute(table_sql)
+    cur.execute(table_sql)
 
-        # Commit the table creation.
-        conn.commit()
+    # Commit the table creation.
+    conn.commit()
 
-        close_conn_cursor(conn, cur)
+    close_conn_cursor(conn, cur)
 
 
 def get_video_ids(cur, schema):

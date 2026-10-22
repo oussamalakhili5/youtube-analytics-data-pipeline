@@ -44,11 +44,11 @@ def insert_rows(cur, conn, schema, row):
                 row,
             )
 
-            # Commit the transaction to save the inserted record.
-            conn.commit()
+        # Commit the transaction to save the inserted record.
+        conn.commit()
 
-            # Log the ID of the inserted video.
-            logger.info(f"Inserted row with Video_ID: {row[video_id]}")
+        # Log the ID of the inserted video.
+        logger.info(f"Inserted row with Video_ID: {row[video_id]}")
 
     except Exception as e:
         # Log the error if the insertion fails.
